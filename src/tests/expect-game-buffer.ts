@@ -36,5 +36,18 @@ export function bufferEqual(
         buffer.height === expect.length &&
         buffer.rows.length === expect.length
     ) {
-
+        pass = buffer.rows.reduce(
+            (acc: boolean, next: GameRow, indx: number) => {
+                const pattern = next.cells
+                    .map((cell) =>
+                        cell.type === undefined ? '.' : (cell.type as string)
+                    )
+                    .join('');
+                const value = next.removed ? pattern.toUpperCase() : pattern;
+                return value === expect[indx];
+            },
+            false
+        );
+    }
+    return expectMessage(this, `expected buffer to {not} equal pattern`, pass);
 }

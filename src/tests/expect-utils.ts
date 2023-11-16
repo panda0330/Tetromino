@@ -33,27 +33,4 @@ export function bufferPattern(rows: Array<string>): GameBuffer {
     const width = rows[0].length;
     const buffer = gameBufferEmpty(width, height);
 
-    for (let y = 0; y < height; y++) {
-        for (let x = 0; x < width; x++) {
-            expect(rows[y].length).toEqual(width);
 
-            const type = rows[y][x];
-            buffer.rows[y].cells[x].type =
-                type === '.' ? undefined : (type as TetrominosType);
-        }
-        buffer.rows[y].removed = gameBufferRowSolid(buffer.rows[y]);
-    }
-
-    return buffer;
-}
-
-/**
- * Converts a screen to a string.
- */
-export function screenToStr(screen: GameScreen): string {
-    return screen
-        .map(
-            (cell) => (cell.glow ? cell.type?.toUpperCase() : cell.type) || '.'
-        )
-        .join('');
-}
