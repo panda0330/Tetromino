@@ -15,5 +15,26 @@ export function bufferSize(
     width: number,
     height: number
 ) {
+    const pass =
+        width === buffer.width &&
+        height === buffer.height &&
+        buffer.rows.length === height;
+    return expectMessage(
+        this,
+        `expected buffer size to {not} be [${width}, ${height}]`,
+        pass
+    );
+}
+
+export function bufferEqual(
+    this: jest.MatcherContext,
+    buffer: GameBuffer,
+    expect: Array<string>
+) {
+    let pass = false;
+    if (
+        buffer.height === expect.length &&
+        buffer.rows.length === expect.length
+    ) {
 
 }
