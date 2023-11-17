@@ -13,24 +13,5 @@ export function expectMessage(
     {isNot}: jest.MatcherContext,
     message: string,
     pass: boolean
-): jest.CustomMatcherResult {
-    message = isNot
-        ? message.replace('{not}', 'not')
-        : message.replace('{not}', '');
-    return {
-        message: () => message.replace(/\s+/g, ' '),
-        pass
-    };
+
 }
-
-/**
- * Creates a buffer from strings.
- */
-export function bufferPattern(rows: Array<string>): GameBuffer {
-    expect(rows.length).toBeGreaterThan(0);
-
-    const height = rows.length;
-    const width = rows[0].length;
-    const buffer = gameBufferEmpty(width, height);
-
-
