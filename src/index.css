@@ -40,43 +40,5 @@
         @apply w-3 h-3;
     }
 
-    ::-webkit-scrollbar-corner {
-        @apply bg-transparent;
-    }
 
-    ::-webkit-scrollbar-thumb {
-        @apply dark:bg-yellow-800 bg-blue-200;
-        @apply bg-clip-padding border border-transparent rounded-lg;
-    }
-
-    ::-webkit-scrollbar-track {
-        @apply bg-clip-padding;
-        @apply border border-transparent;
-    }
-}
-
-@layer components {
-    .text-primary {
-        @apply dark:text-yellow-400 text-blue-600;
-    }
-
-    .text-light {
-        @apply dark:text-gray-600 text-gray-400;
-    }
-
-    .border-primary {
-        @apply dark:border-yellow-400 border-blue-600;
-    }
-
-    .text-secondary {
-        @apply dark:text-green-400 text-red-600;
-    }
-
-    .border-secondary {
-        @apply dark:border-green-400 border-red-600;
-    }
-
-    .MuiBackdrop-root {
-        @apply backdrop-filter backdrop-blur-sm bg-transparent;
-    }
 }
