@@ -77,5 +77,6 @@
     }
 
     .MuiBackdrop-root {
-
+        @apply backdrop-filter backdrop-blur-sm bg-transparent;
+    }
 }
