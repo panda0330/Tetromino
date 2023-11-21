@@ -26,5 +26,20 @@ export function expectMessage(
 /**
  * Creates a buffer from strings.
  */
+export function bufferPattern(rows: Array<string>): GameBuffer {
+    expect(rows.length).toBeGreaterThan(0);
 
-}
+    const height = rows.length;
+    const width = rows[0].length;
+    const buffer = gameBufferEmpty(width, height);
+
+    for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+            expect(rows[y].length).toEqual(width);
+
+            const type = rows[y][x];
+            buffer.rows[y].cells[x].type =
+                type === '.' ? undefined : (type as TetrominosType);
+        }
+        buffer.rows[y].removed = gameBufferRowSolid(buffer.rows[y]);
+
