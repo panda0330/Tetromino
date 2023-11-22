@@ -42,4 +42,15 @@ export function bufferPattern(rows: Array<string>): GameBuffer {
                 type === '.' ? undefined : (type as TetrominosType);
         }
         buffer.rows[y].removed = gameBufferRowSolid(buffer.rows[y]);
+    }
+
+    return buffer;
+}
+
+/**
+ * Converts a screen to a string.
+ */
+export function screenToStr(screen: GameScreen): string {
+    return screen
+        .map(
 
