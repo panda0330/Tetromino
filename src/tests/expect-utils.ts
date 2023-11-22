@@ -53,4 +53,7 @@ export function bufferPattern(rows: Array<string>): GameBuffer {
 export function screenToStr(screen: GameScreen): string {
     return screen
         .map(
-
+            (cell) => (cell.glow ? cell.type?.toUpperCase() : cell.type) || '.'
+        )
+        .join('');
+}
