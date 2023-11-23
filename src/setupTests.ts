@@ -16,4 +16,23 @@ declare global {
 
             bufferSize(width: number, height: number): R;
 
+            rowEmpty(): R;
 
+            rowRemoved(): R;
+
+            rowWidth(width: number): R;
+
+            screenEqual(pattern: Array<string>): R;
+        }
+    }
+}
+
+expect.extend({
+    bufferEmpty,
+    bufferEqual,
+    bufferSize,
+    rowEmpty,
+    rowWidth,
+    rowRemoved,
+    screenEqual
+});
