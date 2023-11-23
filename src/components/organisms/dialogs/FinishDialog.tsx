@@ -18,7 +18,9 @@ export const FinishDialog: FC<FinishDialogProps & Partial<AppDialogControl>> =
         const level = useSelector(selectStart);
         return (
             <AppDialog
-
+                className="max-w-[12rem]"
+                title="Game Over"
+                selectOpen={selectOpen}
             >
                 <GameFinish actionRestart={GameActions.start(level)} />
             </AppDialog>

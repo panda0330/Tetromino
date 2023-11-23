@@ -35,45 +35,6 @@ export const PauseDialog: FC<PauseDialogProps & Partial<AppDialogControl>> = ({
     const sound = useSelector(selectSound);
     const startLevel = useSelector(selectStart);
 
-    const tools = useMemo((): AppBarTool[] => {
-        return [
-            {
-                icon: SOUND_ICON[sound.toString()],
-                toolTip: SOUND_TOOLTIP[sound.toString()],
-                active: sound,
-                action: AppActions.sound()
-            },
-            {
-                icon: MUSIC_ICON[music.toString()],
-                toolTip: MUSIC_TOOLTIP[music.toString()],
-                active: music,
-                action: AppActions.music()
-            },
-            {
-                icon: <FaCog />,
-                toolTip: 'Options',
-                action: AppActions.open(AppDialogType.OPTIONS)
-            }
-        ];
-    }, [music, sound]);
 
-    const menu: Array<AppMenuItem> = useMemo(() => {
-        return [
-            {title: 'Continue', action: GameActions.resume(), active: true},
-            {title: 'Restart', action: GameActions.start(startLevel)},
-            {title: 'Quit Game', action: GameActions.quit()}
-        ];
-    }, [startLevel]);
-
-    return (
-        <AppDialog
-            className="max-w-[12rem]"
-            title="Paused"
-            selectOpen={selectOpen}
-            closeAction={closeAction}
-        >
-            <AppMenu className="mb-5" items={menu} />
-            <AppBar tools={tools} />
-        </AppDialog>
     );
 };
