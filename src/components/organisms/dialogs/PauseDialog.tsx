@@ -35,6 +35,20 @@ export const PauseDialog: FC<PauseDialogProps & Partial<AppDialogControl>> = ({
     const sound = useSelector(selectSound);
     const startLevel = useSelector(selectStart);
 
+    const tools = useMemo((): AppBarTool[] => {
+        return [
+            {
+                icon: SOUND_ICON[sound.toString()],
+                toolTip: SOUND_TOOLTIP[sound.toString()],
+                active: sound,
+                action: AppActions.sound()
+            },
+            {
+                icon: MUSIC_ICON[music.toString()],
+                toolTip: MUSIC_TOOLTIP[music.toString()],
+                active: music,
+                action: AppActions.music()
+            },
 
     );
 };
